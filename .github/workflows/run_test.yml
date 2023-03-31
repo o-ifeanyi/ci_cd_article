@@ -1,0 +1,22 @@
+name: Run Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter Env
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+          flutter-version: '3.7.x'
+
+      - name: Run Test
+        run: make test
