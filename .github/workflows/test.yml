@@ -3,7 +3,7 @@ name: Run Unit Tests
 on:
   pull_request:
     branches:
-      - 'dev'
+      - dev
 
 jobs:
   test:
@@ -19,6 +19,4 @@ jobs:
           cache: true
 
       - name: Run Test
-        run: |
-          flutter pub get
-	        flutter test
+        run: make test

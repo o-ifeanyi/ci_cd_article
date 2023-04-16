@@ -1,5 +1,6 @@
 test:
 	@echo "╠ Running test..."
+	flutter pub get
 	flutter test
 
 deploy-android:
