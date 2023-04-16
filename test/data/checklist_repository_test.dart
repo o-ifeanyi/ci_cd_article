@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../fixture/Checklist_fixtures.dart';
+import '../fixture/checklist_fixtures.dart';
 import '../mocks.dart';
 
 void main() {

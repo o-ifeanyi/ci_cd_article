@@ -1,10 +1,12 @@
 import 'package:checklist_app/core/constants/constants.dart';
 import 'package:checklist_app/model/checklist.dart';
 
+final date = DateTime.now();
+
 JsonMap get checkListDataFixture => {
       'id': 'id',
       'title': 'title',
-      'updated_at': 1640991600000,
+      'updated_at': date.millisecondsSinceEpoch,
       'action': 'synched',
       'items': [checkListItemDataFixture],
     };
@@ -18,7 +20,7 @@ JsonMap get checkListItemDataFixture => {
 ChecklistModel get checkListModelFixture => ChecklistModel(
       id: 'id',
       title: 'title',
-      updatedAt: DateTime(2022),
+      updatedAt: date,
       action: SyncAction.synched,
       items: [checkListItemModelFixture],
     );
