@@ -1,0 +1,72 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  android:
+    if: contains(github.event.head_commit.message, 'deploy')
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Flutter SDK
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        cache: true
+
+    - name: Set up key.properties
+      run: |
+        echo keyPassword=\${{ secrets.KEY_PASSWORD }} > android/key.properties
+        echo storePassword=\${{ secrets.STORE_PASSWORD }} > android/key.properties
+        echo keyAlias=\${{ secrets.KEY_ALIAS }} > android/key.properties
+      # Decoding base64 key into a file
+        echo "${{ secrets.STORE_FILE_CONTENT }}" | base64 --decode > android/key.jks
+
+    - name: Set up local.properties
+      run: |
+        echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+
+    - name: Set up Play Store Secret
+      run: |
+        echo ${{ secrets.PLAY_STORE_SECRET }} > android/play_store_secret.json
+
+    - name: Setup Fastlane
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+        rubygems: latest
+
+    - name: Build and Deploy
+      run: |
+        flutter pub get
+        make deploy-android
+
+  # web:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v3
+
+  #     - name: Setup Flutter Env
+  #       uses: subosito/flutter-action@v1
+  #       with:
+  #         channel: 'stable'
+  #         flutter-version: 3.7.1
+
+  #     - run: |
+  #         flutter pub get
+  #         flutter build web
+
+  #     - name: Firebase Deploy
+  #       uses: FirebaseExtended/action-hosting-deploy@v0
+  #       with:
+  #         repoToken: '${{ secrets.GITHUB_TOKEN }}'
+  #         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHECKLIST_6A64E }}'
+  #         projectId: checklist-6a64e
+  #         channelId: live
