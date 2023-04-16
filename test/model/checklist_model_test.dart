@@ -30,7 +30,7 @@ void main() {
       expect(model.title, equals(checklistModel.title));
     });
 
-    test('should return a valis map from model', () {
+    test('should return a valid map from model', () {
       final result = checklistModel.toMap();
 
       expect(result, equals(checkListDataFixture));
