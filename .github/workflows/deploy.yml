@@ -32,7 +32,7 @@ jobs:
 
     - name: Set up Play Store Secret
       run: |
-        echo "${{ secrets.PLAY_STORE_SECRET }}" > android/play_store_secret.json
+        echo "${{ secrets.PLAY_STORE_SECRET }}" | base64 --decode > android/play_store_secret.json
 
     - name: Setup Fastlane
       uses: ruby/setup-ruby@v1
