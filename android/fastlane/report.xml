@@ -5,37 +5,39 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000216">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000222">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to android set_full_version lane" time="0.00013">
+      <testcase classname="fastlane.lanes" name="1: Switch to android set_full_version lane" time="0.011875">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: flutter_version" time="0.000651">
+      <testcase classname="fastlane.lanes" name="2: flutter_version" time="0.001724">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.001048">
+      <testcase classname="fastlane.lanes" name="3: android_set_version_name" time="0.00087">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.000548">
+      <testcase classname="fastlane.lanes" name="4: android_set_version_code" time="0.000946">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: clean bundle" time="22.3279">
+      <testcase classname="fastlane.lanes" name="5: clean bundle" time="72.777391">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: upload_to_play_store" time="35.685854">
+      <testcase classname="fastlane.lanes" name="6: upload_to_play_store" time="56.966602">
+        
+          <failure message="/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:229:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:229:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:31:in `block (2 levels) in parsing_binding'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/commands_generator.rb:354:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/commands_generator.rb:43:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.1/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:23:in `load'&#10;/usr/local/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli/exec.rb:63:in `load'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli/exec.rb:63:in `kernel_load'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli/exec.rb:28:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli.rb:494:in `exec'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli.rb:30:in `dispatch'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli.rb:24:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/exe/bundle:49:in `block in &lt;top (required)&gt;'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/friendly_errors.rb:130:in `with_friendly_errors'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/exe/bundle:37:in `&lt;top (required)&gt;'&#10;/usr/local/bin/bundle:23:in `load'&#10;/usr/local/bin/bundle:23:in `&lt;main&gt;'&#10;&#10;Google Api Error: Invalid request - APK specifies a version code that has already been used." />
         
       </testcase>
     
