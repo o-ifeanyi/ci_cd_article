@@ -17,9 +17,9 @@ jobs:
     - name: Setup Flutter SDK
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: 3.7.1
         channel: stable
         cache: true
+
     - name: Set up key.properties
       run: |
         echo keyPassword=\${{ secrets.KEY_PASSWORD }} > android/key.properties
