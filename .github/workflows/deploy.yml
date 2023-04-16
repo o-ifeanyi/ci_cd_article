@@ -11,41 +11,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
-      - name: Setup Flutter SDK
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
+    - name: Setup Flutter SDK
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 3.7.1
+        channel: stable
+        cache: true
 
-      - name: Set up key.properties
-        run: |
-          echo keyPassword=\${{ secrets.KEY_PASSWORD }} > android/key.properties
-          echo storePassword=\${{ secrets.STORE_PASSWORD }} > android/key.properties
-          echo keyAlias=\${{ secrets.KEY_ALIAS }} > android/key.properties
-        # Decoding base64 key into a file
-          echo "${{ secrets.STORE_FILE_CONTENT }}" | base64 --decode > android/key.jks
+    - name: Set up key.properties
+      run: |
+        echo keyPassword=\${{ secrets.KEY_PASSWORD }} > android/key.properties
+        echo storePassword=\${{ secrets.STORE_PASSWORD }} > android/key.properties
+        echo keyAlias=\${{ secrets.KEY_ALIAS }} > android/key.properties
+      # Decoding base64 key into a file
+        echo "${{ secrets.STORE_FILE_CONTENT }}" | base64 --decode > android/key.jks
 
-      - name: Set up local.properties
-        run: |
-          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+    - name: Set up local.properties
+      run: |
+        echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
 
-      - name: Set up Play Store Secret
-        run: |
-          echo ${{ secrets.PLAY_STORE_SECRET }} > android/play_store_secret.json
+    - name: Set up Play Store Secret
+      run: |
+        echo ${{ secrets.PLAY_STORE_SECRET }} > android/play_store_secret.json
 
-      - name: Setup Fastlane
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          rubygems: latest
+    - name: Setup Fastlane
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+        rubygems: latest
 
-      - name: Build and Deploy
-        run: |
-          flutter pub get
-          make deploy-android
+    - name: Build and Deploy
+      run: |
+        flutter pub get
+        make deploy-android
 
   # web:
   #   runs-on: ubuntu-latest
