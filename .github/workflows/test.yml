@@ -3,7 +3,7 @@ name: Run Unit Tests
 on:
   pull_request:
     branches:
-      - 'main'
+      - dev
 
 jobs:
   test:
@@ -16,7 +16,7 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
-          flutter-version: '3.7.x'
+          cache: true
 
       - name: Run Test
         run: make test
