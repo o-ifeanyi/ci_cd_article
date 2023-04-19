@@ -45,33 +45,59 @@ jobs:
   #       flutter pub get
   #       make deploy-android
   
-  ios:
-    runs-on: macos-latest
+  # ios:
+  #   runs-on: macos-latest
+
+  #   steps:
+  #   - name: Checkout Code
+  #     uses: actions/checkout@v3
+
+  #   - name: Setup Flutter SDK
+  #     uses: subosito/flutter-action@v2
+  #     with:
+  #       channel: stable
+  #       cache: true
+
+  #   - name: Set up App Store Connect
+  #     run: |
+  #       echo "${{ secrets.APP_STORE_CONNECT }}" | base64 --decode > ios/app_store_connect.json
+
+  #   - name: Setup Fastlane
+  #     uses: ruby/setup-ruby@v1
+  #     with:
+  #       ruby-version: 2.6
+  #       rubygems: latest
+
+  #   - name: Build and Deploy
+  #     run: |
+  #       flutter pub get
+  #       make deploy-ios
+  #     env:
+  #         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+  #         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
+
+  web:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Setup Flutter SDK
-      uses: subosito/flutter-action@v2
-      with:
-        channel: stable
-        cache: true
+      - name: Setup Flutter Env
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
 
-    - name: Set up App Store Connect
-      run: |
-        echo "${{ secrets.APP_STORE_CONNECT }}" | base64 --decode > ios/app_store_connect.json
+      - name: Make Web Build
+        run: |
+          flutter pub get
+          flutter build web
 
-    - name: Setup Fastlane
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-        rubygems: latest
-
-    - name: Build and Deploy
-      run: |
-        flutter pub get
-        make deploy-ios
-      env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
+      - name: Deploy Web Build
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHECKLIST_6A64E }}'
+          channelId: live
+          projectId: checklist-6a64e
