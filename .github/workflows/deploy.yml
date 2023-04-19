@@ -122,7 +122,7 @@ jobs:
         echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
         echo "## What's Changed" >> $GITHUB_ENV
         echo $(git log $from..HEAD --pretty=format:"* %s by %an in %h%n") >> $GITHUB_ENV
-        echo "**Full Changelog**: https://github.com/Semy-App/semy_flutter/compare/$from...$to" >> $GITHUB_ENV
+        echo "\n\n**Full Changelog**: https://github.com/Semy-App/semy_flutter/compare/$from...$to" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
     - name: Create Tag and Release
