@@ -73,4 +73,5 @@ jobs:
         flutter pub get
         make deploy-ios
       env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
