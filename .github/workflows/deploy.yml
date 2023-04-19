@@ -71,7 +71,6 @@ jobs:
     - name: Build and Deploy
       run: |
         flutter pub get
-        git config --global url.ssh://git@github.com/.insteadOf https://github.com/
         make deploy-ios
       env:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
