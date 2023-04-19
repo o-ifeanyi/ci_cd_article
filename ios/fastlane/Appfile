@@ -1,0 +1,8 @@
+app_identifier("ifeanyi.checklist.ios") # The bundle identifier of your app
+apple_id("onuifeanyi95@gmail.com") # Your Apple Developer Portal username
+
+itc_team_id("125431871") # App Store Connect Team ID
+team_id("YYA8WP4LNJ") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

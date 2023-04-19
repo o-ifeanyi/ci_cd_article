@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Set Info.plist Version and Build Number"
+  lane :set_full_version do
+    version = flutter_version()
+
+    increment_version_number(version_number: version['version_name'])
+
+    increment_build_number(build_number: version['version_code'])
+  end
+
+  desc "Push a new build to TestFlight"
+  lane :deploy do
+    set_full_version()
+
+    match(
+      type: "appstore",
+      readonly: is_ci,
+      git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+    )
+
+    build_app(
+      workspace: "Runner.xcworkspace",
+      scheme: "Runner",
+      archive_path: "../build/ios/Runner.xcarchive",
+      output_directory: "../build/ios/Runner",
+    )
+
+    upload_to_testflight(
+      api_key_path: "./app_store_connect.json",
+      ipa: '../build/ios/Runner/Runner.ipa',
+      skip_waiting_for_build_processing: true,
+    )
+  end
+end

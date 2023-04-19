@@ -26,7 +26,7 @@ Flutter/flutter_assets/
 Flutter/flutter_export_environment.sh
 ServiceDefinitions.json
 Runner/GeneratedPluginRegistrant.*
-app_store_connect.p8
+app_store_connect.json
 
 # Exceptions to above rules.
 !default.mode1v3
