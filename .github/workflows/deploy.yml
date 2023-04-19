@@ -13,7 +13,7 @@ jobs:
   #   - name: Checkout Code
   #     uses: actions/checkout@v3
 
-  #   - name: Setup Flutter SDK
+  #   - name: Setup Flutter
   #     uses: subosito/flutter-action@v2
   #     with:
   #       channel: stable
@@ -52,7 +52,7 @@ jobs:
   #   - name: Checkout Code
   #     uses: actions/checkout@v3
 
-  #   - name: Setup Flutter SDK
+  #   - name: Setup Flutter
   #     uses: subosito/flutter-action@v2
   #     with:
   #       channel: stable
@@ -76,28 +76,50 @@ jobs:
   #         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
   #         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
 
-  web:
+  # web:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v3
+
+  #     - name: Setup Flutter
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         channel: 'stable'
+  #         cache: true
+
+  #     - name: Make Web Build
+  #       run: |
+  #         flutter pub get
+  #         flutter build web
+
+  #     - name: Deploy Web Build
+  #       uses: FirebaseExtended/action-hosting-deploy@v0
+  #       with:
+  #         repoToken: '${{ secrets.GITHUB_TOKEN }}'
+  #         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHECKLIST_6A64E }}'
+  #         channelId: live
+  #         projectId: checklist-6a64e
+
+  tag:
     runs-on: ubuntu-latest
+    # needs: [android, ios, web]
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
-      - name: Setup Flutter Env
-        uses: subosito/flutter-action@v2
+    - name: Get Flutter Version
+      run: |
+        versionName=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`
+        echo "VERSION_NAME=$versionName" >> $GITHUB_ENV
+
+    - name: Create Tag and Release
+      uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          channel: 'stable'
-          cache: true
-
-      - name: Make Web Build
-        run: |
-          flutter pub get
-          flutter build web
-
-      - name: Deploy Web Build
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHECKLIST_6A64E }}'
-          channelId: live
-          projectId: checklist-6a64e
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ env.VERSION_NAME }}
+          automatic_release_tag: ${{ env.VERSION_NAME }}
+          draft: false
+          prerelease: false
