@@ -114,24 +114,11 @@ jobs:
         versionName=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`
         echo "VERSION_NAME=v$versionName" >> $GITHUB_ENV
 
-    - name: Generate Realease Notes
-      run: |
-        git fetch --prune --unshallow --tags
-        from=$(git describe --tags --abbrev=0)
-        to=${{ env.VERSION_NAME }}
-        echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
-        echo "## What's Changed" >> $GITHUB_ENV
-        echo $(git log $from..HEAD --pretty=format:"* %s by %an in %h%n") >> $GITHUB_ENV
-        echo "\n\n**Full Changelog**: https://github.com/Semy-App/semy_flutter/compare/$from...$to" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
-
     - name: Create Tag and Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        tag_name: ${{ env.VERSION_NAME }}
-        release_name: ${{ env.VERSION_NAME }}
-        body: ${{ env.RELEASE_NOTES }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        title: ${{ env.VERSION_NAME }}
+        automatic_release_tag: ${{ env.VERSION_NAME }}
         draft: false
         prerelease: false
