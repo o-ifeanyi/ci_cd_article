@@ -5,47 +5,64 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000233">
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.000232">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to ios set_full_version lane" time="0.000114">
+      <testcase classname="fastlane.lanes" name="01: Switch to ios set_full_version lane" time="0.000111">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: flutter_version" time="0.00118">
+      <testcase classname="fastlane.lanes" name="02: flutter_version" time="0.0016">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_version_number" time="2.830741">
+      <testcase classname="fastlane.lanes" name="03: increment_version_number" time="2.983805">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="2.825649">
+      <testcase classname="fastlane.lanes" name="04: increment_build_number" time="2.778958">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: is_ci" time="0.000183">
+      <testcase classname="fastlane.lanes" name="05: is_ci" time="0.000147">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: match" time="20.48365">
+      <testcase classname="fastlane.lanes" name="06: match" time="20.775207">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: cocoapods" time="1.015791">
+      <testcase classname="fastlane.lanes" name="07: is_ci" time="0.000201">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: build_app" time="71.572135">
+      <testcase classname="fastlane.lanes" name="08: cocoapods" time="0.958287">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: is_ci" time="0.000171">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: build_app" time="72.444958">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: upload_to_testflight" time="52.008771">
+        
+          <failure message="/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:229:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:229:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:45:in `block (2 levels) in parsing_binding'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/commands_generator.rb:354:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/commands_generator.rb:43:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/fastlane/lib/fastlane/cli_tools_distributor.rb:123:in `take_off'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.212.2/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:23:in `load'&#10;/usr/local/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli/exec.rb:63:in `load'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli/exec.rb:63:in `kernel_load'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli/exec.rb:28:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli.rb:494:in `exec'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli.rb:30:in `dispatch'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/cli.rb:24:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/exe/bundle:49:in `block in &lt;top (required)&gt;'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/lib/bundler/friendly_errors.rb:130:in `with_friendly_errors'&#10;/Library/Ruby/Gems/2.6.0/gems/bundler-2.2.16/exe/bundle:37:in `&lt;top (required)&gt;'&#10;/usr/local/bin/bundle:23:in `load'&#10;/usr/local/bin/bundle:23:in `&lt;main&gt;'&#10;&#10;Error uploading ipa file: &#10; [Application Loader Error Output]: ERROR: Asset validation failed (90186) Invalid Pre-Release Train. The train version '1.0.1' is closed for new build submissions (ID: d6aed7c4-1867-4003-bf03-13aa7b0ec105)&#10;[Application Loader Error Output]: ERROR: Asset validation failed (90062) This bundle is invalid. The value for key CFBundleShortVersionString [1.0.1] in the Info.plist file must contain a higher version than that of the previously approved version [1.0.1]. Please find more information about CFBundleShortVersionString at https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring (ID: 8773bc12-00f9-4a01-bdf8-a1c23c5655ec)&#10;[Application Loader Error Output]: Error uploading '/var/folders/l5/w03q19wd1vz65mvkmmphfdh00000gn/T/070748b4-aa9d-46c9-bed9-baf49943f6a3.ipa'.&#10;[Application Loader Error Output]: Asset validation failed Invalid Pre-Release Train. The train version '1.0.1' is closed for new build submissions (ID: d6aed7c4-1867-4003-bf03-13aa7b0ec105) (90186)&#10;[Application Loader Error Output]: Asset validation failed This bundle is invalid. The value for key CFBundleShortVersionString [1.0.1] in the Info.plist file must contain a higher version than that of the previously approved version [1.0.1]. Please find more information about CFBundleShortVersionString at https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring (ID: 8773bc12-00f9-4a01-bdf8-a1c23c5655ec) (90062)&#10;[Application Loader Error Output]: The call to the altool completed with a non-zero exit status: 1. This indicates a failure." />
         
       </testcase>
     
