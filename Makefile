@@ -3,6 +3,13 @@ test:
 	flutter pub get
 	flutter test
 
+clean:
+	flutter clean
+	cd ios && rm -rf Podfile.lock
+	cd ios && rm -rf Pods
+	flutter pub get
+	cd ios && pod install
+
 deploy-android:
 	@echo "╠ Sending Android Build to Closed Testing..."
 	cd android && bundle install
@@ -20,4 +27,4 @@ deploy-web:
 
 deploy: test deploy-android deploy-ios deploy-web
 
-.PHONY: test deploy-android deploy-ios deploy-web
+.PHONY: test clean deploy-android deploy-ios deploy-web

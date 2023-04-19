@@ -32,6 +32,8 @@ platform :ios do
       git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
     )
 
+    cocoapods(clean_install: true)
+
     build_app(
       workspace: "Runner.xcworkspace",
       scheme: "Runner",
