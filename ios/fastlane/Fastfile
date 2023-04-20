@@ -26,13 +26,15 @@ platform :ios do
   lane :deploy do
     set_full_version()
 
+    setup_ci if is_ci
+
+    cocoapods(clean_install: true)
+
     match(
       type: "appstore",
       readonly: is_ci,
       git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
     )
-
-    cocoapods(clean_install: true)
 
     build_app(
       workspace: "Runner.xcworkspace",
