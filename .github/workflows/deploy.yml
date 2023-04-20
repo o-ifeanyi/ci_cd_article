@@ -6,44 +6,44 @@ on:
       - main
 
 jobs:
-  # android:
-  #   runs-on: ubuntu-latest
+  android:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #   - name: Checkout Code
-  #     uses: actions/checkout@v3
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
-  #   - name: Setup Flutter
-  #     uses: subosito/flutter-action@v2
-  #     with:
-  #       channel: stable
-  #       cache: true
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        cache: true
 
-  #   - name: Set up key.properties
-  #     run: |
-  #       echo "keyPassword=${{ secrets.KEY_PASSWORD }}" > android/key.properties
-  #       echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
-  #       echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
-  #       echo "${{ secrets.STORE_FILE_CONTENT }}" | base64 --decode > android/key.jks
+    - name: Set up key.properties
+      run: |
+        echo "keyPassword=${{ secrets.KEY_PASSWORD }}" > android/key.properties
+        echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
+        echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+        echo "${{ secrets.STORE_FILE_CONTENT }}" | base64 --decode > android/key.jks
 
-  #   - name: Set up local.properties
-  #     run: |
-  #       echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+    - name: Set up local.properties
+      run: |
+        echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
 
-  #   - name: Set up Play Store Secret
-  #     run: |
-  #       echo "${{ secrets.PLAY_STORE_SECRET }}" | base64 --decode > android/play_store_secret.json
+    - name: Set up Play Store Secret
+      run: |
+        echo "${{ secrets.PLAY_STORE_SECRET }}" | base64 --decode > android/play_store_secret.json
 
-  #   - name: Setup Fastlane
-  #     uses: ruby/setup-ruby@v1
-  #     with:
-  #       ruby-version: 2.6
-  #       rubygems: latest
+    - name: Setup Fastlane
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+        rubygems: latest
 
-  #   - name: Build and Deploy
-  #     run: |
-  #       flutter pub get
-  #       make deploy-android
+    - name: Build and Deploy
+      run: |
+        flutter pub get
+        make deploy-android
   
   ios:
     runs-on: macos-latest
@@ -76,50 +76,50 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
 
-  # web:
-  #   runs-on: ubuntu-latest
+  web:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v3
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-  #     - name: Setup Flutter
-  #       uses: subosito/flutter-action@v2
-  #       with:
-  #         channel: 'stable'
-  #         cache: true
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
 
-  #     - name: Make Web Build
-  #       run: |
-  #         flutter pub get
-  #         flutter build web
+      - name: Make Web Build
+        run: |
+          flutter pub get
+          flutter build web
 
-  #     - name: Deploy Web Build
-  #       uses: FirebaseExtended/action-hosting-deploy@v0
-  #       with:
-  #         repoToken: '${{ secrets.GITHUB_TOKEN }}'
-  #         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHECKLIST_6A64E }}'
-  #         channelId: live
-  #         projectId: checklist-6a64e
+      - name: Deploy Web Build
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHECKLIST_6A64E }}'
+          channelId: live
+          projectId: checklist-6a64e
 
-  # tag:
-  #   runs-on: ubuntu-latest
-  #   needs: [android, ios, web]
+  tag:
+    runs-on: ubuntu-latest
+    needs: [android, ios, web]
 
-  #   steps:
-  #   - name: Checkout Code
-  #     uses: actions/checkout@v3
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
-  #   - name: Get Flutter Version
-  #     run: |
-  #       versionName=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`
-  #       echo "VERSION_NAME=v$versionName" >> $GITHUB_ENV
+    - name: Get Flutter Version
+      run: |
+        versionName=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`
+        echo "VERSION_NAME=v$versionName" >> $GITHUB_ENV
 
-  #   - name: Create Tag and Release
-  #     uses: "marvinpinto/action-automatic-releases@latest"
-  #     with:
-  #       repo_token: ${{ secrets.GITHUB_TOKEN }}
-  #       title: ${{ env.VERSION_NAME }}
-  #       automatic_release_tag: ${{ env.VERSION_NAME }}
-  #       draft: false
-  #       prerelease: false
+    - name: Create Tag and Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        title: ${{ env.VERSION_NAME }}
+        automatic_release_tag: ${{ env.VERSION_NAME }}
+        draft: false
+        prerelease: false
