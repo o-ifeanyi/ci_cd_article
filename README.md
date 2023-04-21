@@ -1,29 +1,16 @@
-# 🔖 Checklist App
+# ☑️ Checklist App
 
 This is a Flutter project that utilizes Fastlane and GitHub Actions for continuous integration and deployment (CI/CD) automation.
 
 Fastlane is a command-line tool for automating common development tasks, such as building, testing, and deploying mobile apps. It allows us to define a series of steps that we want to automate as part of our development workflow, and then execute them with a single command. With Fastlane, we can automate the process of building, testing, and deploying our app, as well as many other common development tasks.
 
-GitHub Actions is a powerful platform for automating workflows, including CI/CD pipelines. I have set up GitHub Actions to automatically  test and deploy the app to the stores when changes are made to the repository.
+GitHub Actions is a powerful platform for automating workflows, including CI/CD pipelines. GitHub Actions has been set up to automatically  test and deploy the app to the stores when changes are made to the repository.
 
-In addition to the code in this repository, I have also published two articles that explains how Fastlane and GitHub Actions was set up for this project. I hope that these articles will be helpful to other mobile app developers who are interested in streamlining their development workflows and improving the quality of their code.
+## 📝 Articles
+In addition to the code in this repository, two articles have also been published that explains how Fastlane and GitHub Actions was set up for this project. I hope that these articles will be helpful to other mobile app developers who are interested in streamlining their development workflows and improving the quality of their code.
 
-[Flutter + Fastlane (Part 1)](https://o-ifeanyi.hashnode.dev/flutter-fastlane-part-1)
-
-[Flutter + Fastlane + Actions (Part 2)](https://o-ifeanyi.hashnode.dev/flutter-fastlane-github-actions-part-2)
-
-## ⬇️ Setting up locally 
-- Clone the repo locally
-- Navigate to the folder and run `flutter pub get` to install the required dart packages
-
-## 📱 Running the application
-Simply run `flutter run` command from the terminal
-
-## 🧪 Running the test
-Simply run `flutter run test` which would run both the unit and widget test
-
-## 🤖 Running integration test
-- Use the following command to run the integration test `flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart`
+- [Flutter + Fastlane (Part 1)](https://o-ifeanyi.hashnode.dev/flutter-fastlane-part-1)
+- [Flutter + Fastlane + Actions (Part 2)](https://o-ifeanyi.hashnode.dev/flutter-fastlane-github-actions-part-2)
 
 ## 📸 Screenshots
 | Light | Dark |
