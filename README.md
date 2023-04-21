@@ -18,8 +18,8 @@ In addition to the code in this repository, two articles have also been publishe
 |<img src="https://user-images.githubusercontent.com/60583263/233743953-001b6150-18e2-4a97-a4a0-06b12658c19f.png" width="400"> |  <img src="https://user-images.githubusercontent.com/60583263/233744004-2b5378ec-4e9b-424e-8b93-7bcdb6caed7c.png" width="400">|
 |<img src="https://user-images.githubusercontent.com/60583263/233743985-545f9cea-d37c-4d59-ba6d-fef7e82ad5dd.png" width="400"> |  <img src="https://user-images.githubusercontent.com/60583263/233744027-243b72b4-0269-4d6f-9218-10ed63312186.png" width="400">|
 
-## 🤓 Author(s)
-[![Twitter Follow](https://img.shields.io/twitter/follow/onuoha_ifeanyi.svg?style=social)](https://twitter.com/onuoha_ifeanyi)
+## 🤓 Author
+- Onuoha Ifeanyi ([@onuoha_ifeanyi](https://twitter.com/onuoha_ifeanyi))
 
 ## 🔖 License
     Copyright 2023 Onuoha Ifeanyi
