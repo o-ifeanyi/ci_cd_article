@@ -1,3 +1,5 @@
+![Article](https://user-images.githubusercontent.com/60583263/233746237-d687b6d0-3c39-43fa-a6d3-9da6e4987bc3.png)
+
 # ☑️ Checklist App
 
 This is a Flutter project that utilizes Fastlane and GitHub Actions for continuous integration and deployment (CI/CD) automation.
