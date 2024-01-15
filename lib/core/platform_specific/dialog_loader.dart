@@ -30,7 +30,7 @@ class _DialogLoaderState<T> extends State<DialogLoader<T>> {
   Widget build(BuildContext context) {
     return PlatformAlertDialog(
       content: Padding(
-        padding: Config.contentPadding(context, v: 3),
+        padding: Config.contentPadding(h: 20, v: 20),
         child: const PlatformProgressIndicator(),
       ),
       actions: [],

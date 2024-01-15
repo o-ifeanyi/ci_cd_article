@@ -42,7 +42,8 @@ class Robot {
     timeOut = Timer.periodic(Duration(seconds: timeOutSeconds), (_) {
       if (!c.isCompleted) {
         checker.cancel();
-        c.completeError('WaitFor timed out for ${finder.description}');
+        c.completeError(
+            'WaitFor timed out for ${finder.describeMatch(Plurality.one)}');
       }
     });
 

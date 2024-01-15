@@ -35,19 +35,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return ConstrainedBoxWidget(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('My account', style: Config.h2(context)),
+          title: Text(
+            'My account',
+            style: Config.textTheme.titleMedium,
+          ),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: Config.yMargin(context, 2)),
+            Config.vGap20,
             Expanded(
               child: ListView(
-                padding: Config.contentPadding(context),
+                padding: Config.contentPadding(h: 20),
                 children: [
                   CustomListTile(
                     iconData: AppIcons.terms,
@@ -59,21 +61,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     title: 'Privacy policy',
                     onPressed: () => context.push(PrivacyPolicy.route),
                   ),
-                  SizedBox(height: Config.yMargin(context, 1)),
+                  Config.vGap10,
                   CupertinoSlidingSegmentedControl<ThemeOptions>(
                     groupValue: _selectedTheme,
-                    thumbColor: theme.colorScheme.background,
-                    backgroundColor: theme.colorScheme.secondary,
-                    padding: Config.contentPadding(context, h: 3, v: 1),
+                    padding: Config.contentPadding(h: 15, v: 10),
                     children: {
                       ThemeOptions.light: Padding(
                         padding: const EdgeInsets.all(8),
-                        child: Text('Light', style: Config.b1(context)),
+                        child:
+                            Text('Light', style: Config.textTheme.bodyMedium),
                       ),
                       ThemeOptions.dark:
-                          Text('Dark', style: Config.b1(context)),
+                          Text('Dark', style: Config.textTheme.bodyMedium),
                       ThemeOptions.system:
-                          Text('System', style: Config.b1(context)),
+                          Text('System', style: Config.textTheme.bodyMedium),
                     },
                     onValueChanged: (option) {
                       if (option != null)
