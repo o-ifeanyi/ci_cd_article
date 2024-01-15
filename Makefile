@@ -25,6 +25,9 @@ deploy-web:
 	flutter build web --no-tree-shake-icons
 	firebase deploy
 
+splash:
+	dart run flutter_native_splash:create --path=pubspec.yaml
+
 deploy: test deploy-android deploy-ios deploy-web
 
-.PHONY: test clean deploy-android deploy-ios deploy-web
+.PHONY: test clean deploy-android deploy-ios deploy-web, splash
