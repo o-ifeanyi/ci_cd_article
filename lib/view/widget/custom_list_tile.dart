@@ -31,7 +31,7 @@ class CustomListTile extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: Config.b1(context).copyWith(color: highlightColor),
+        style: Config.textTheme.bodyLarge?.copyWith(color: highlightColor),
       ),
     );
   }

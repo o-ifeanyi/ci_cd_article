@@ -77,7 +77,7 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
         child: Scaffold(
           appBar: AppBar(),
           body: SingleChildScrollView(
-            padding: Config.contentPadding(context),
+            padding: Config.contentPadding(h: 20, v: 20),
             child: Form(
               key: _formKey,
               child: Column(
@@ -86,14 +86,16 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                     key: const ValueKey('title_field'),
                     initialValue: checklist.title,
                     autofocus: checklist.title == 'title',
-                    style: Config.h2(context),
+                    style: Config.textTheme.titleSmall,
                     maxLines: null,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
-                      errorStyle: Config.b2(context),
+                      errorStyle: Config.textTheme.bodySmall,
                       border: InputBorder.none,
+                      filled: false,
                       enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
                     ),
                     onChanged: (val) {
                       checklist = checklist.copyWith(title: val.trim());
@@ -107,16 +109,20 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                         key: ValueKey('${item.id}'),
                         contentPadding: const EdgeInsets.all(0),
                         controlAffinity: ListTileControlAffinity.leading,
+                        checkboxShape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)),
                         title: TextFormField(
                           initialValue: item.text,
                           focusNode: _focus[item.id],
-                          style: Config.b1(context),
+                          style: Config.textTheme.bodyMedium,
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.next,
                           maxLines: null,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             enabledBorder: InputBorder.none,
+                            filled: false,
+                            focusedBorder: InputBorder.none,
                             suffixIcon: IconButton(
                               onPressed: () {
                                 final items = checklist.items..remove(item);
@@ -159,7 +165,7 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                     ),
                     title: Text(
                       'Add item',
-                      style: Config.b1(context),
+                      style: Config.textTheme.bodyMedium,
                     ),
                   ),
                   if (checklist.done.isNotEmpty) ...[
@@ -168,20 +174,23 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                       (item) {
                         return CheckboxListTile(
                           key: ValueKey('${item.id}'),
-                          activeColor: Theme.of(context).colorScheme.background,
                           contentPadding: const EdgeInsets.all(0),
                           controlAffinity: ListTileControlAffinity.leading,
+                          checkboxShape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
                           title: TextFormField(
                             readOnly: true,
                             initialValue: item.text,
-                            style: Config.b1(context).copyWith(
+                            style: Config.textTheme.bodyMedium?.copyWith(
                               decoration: TextDecoration.lineThrough,
                             ),
                             keyboardType: TextInputType.multiline,
                             maxLines: null,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
+                              filled: false,
                               enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
                             ),
                             onChanged: (_) {},
                           ),

@@ -1,6 +1,5 @@
 import 'package:checklist_app/core/services/snackbar_service.dart';
 import 'package:checklist_app/core/util/config.dart';
-import 'package:checklist_app/core/util/themes.dart';
 import 'package:flutter/material.dart';
 
 class CustomSnackBar extends StatelessWidget {
@@ -21,13 +20,13 @@ class CustomSnackBar extends StatelessWidget {
       child: GestureDetector(
         onTapDown: (_) => onDismiss(),
         child: Container(
-          padding: Config.contentPadding(context, h: 5, v: 2),
+          padding: Config.contentPadding(h: 20, v: 10),
           width: size.width,
           decoration: BoxDecoration(
             borderRadius:
                 const BorderRadius.vertical(bottom: Radius.circular(5)),
             color: snackbarModel.status == Status.success
-                ? kGreenAccent
+                ? Colors.greenAccent
                 : Theme.of(context).colorScheme.error,
           ),
           child: SafeArea(
@@ -38,11 +37,13 @@ class CustomSnackBar extends StatelessWidget {
                 if (snackbarModel.title != null)
                   Text(
                     snackbarModel.title!,
-                    style: Config.b1b(context).copyWith(color: Colors.white),
+                    style: Config.textTheme.bodyLarge
+                        ?.copyWith(color: Colors.white),
                   ),
                 Text(
                   snackbarModel.message,
-                  style: Config.b1(context).copyWith(color: Colors.white),
+                  style: Config.textTheme.bodyMedium
+                      ?.copyWith(color: Colors.white),
                 ),
               ],
             ),

@@ -15,21 +15,21 @@ class PrivacyPolicy extends StatelessWidget {
           backgroundColor: theme.scaffoldBackgroundColor,
           elevation: 0,
           title: Padding(
-            padding: EdgeInsets.only(left: Config.xMargin(context, 1.8)),
+            padding: EdgeInsets.only(left: Config.x(10)),
             child: Text(
               'Privacy Policy',
-              style: Config.h2(context)
-                  .copyWith(color: theme.textTheme.bodyLarge?.color),
+              style: Config.textTheme.titleMedium
+                  ?.copyWith(color: theme.textTheme.bodyLarge?.color),
             ),
           ),
           centerTitle: false,
         ),
         body: SingleChildScrollView(
-          padding: Config.contentPadding(context),
+          padding: Config.contentPadding(h: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: Config.yMargin(context, 2)),
+              Config.vGap20,
               Text(
                 '''
 Onuoha Ifeanyi built the Checklist app as a Free app. This SERVICE is provided by Onuoha Ifeanyi at no cost and is intended for use as is.
@@ -40,11 +40,11 @@ If you choose to use my Service, then you agree to the collection and use of inf
 
 The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at Checklist unless otherwise defined in this Privacy Policy.
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 'Information Collection and Use',
-                style: Config.h2(context),
+                style: Config.textTheme.titleMedium,
               ),
               Text(
                 '''
@@ -54,11 +54,11 @@ The app does not use third-party services that may collect information used to i
 
 Link to the privacy policy of third-party service providers used by the app
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 'Cookies',
-                style: Config.h2(context),
+                style: Config.textTheme.titleMedium,
               ),
               Text(
                 '''
@@ -74,11 +74,11 @@ To perform Service-related services; or
 To assist us in analyzing how our Service is used.
 I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 'Security',
-                style: Config.h2(context),
+                style: Config.textTheme.titleMedium,
               ),
               Text(
                 '''
@@ -88,21 +88,21 @@ Links to Other Sites
 
 This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 'Children\'s Privacy',
-                style: Config.h2(context),
+                style: Config.textTheme.titleMedium,
               ),
               Text(
                 '''
 These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 'Changes to This Privacy Policy',
-                style: Config.h2(context),
+                style: Config.textTheme.titleMedium,
               ),
               Text(
                 '''
@@ -110,23 +110,23 @@ I may update our Privacy Policy from time to time. Thus, you are advised to revi
 
 This policy is effective as of 2022-08-15
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 'Contact Us',
-                style: Config.h2(context),
+                style: Config.textTheme.titleMedium,
               ),
               Text(
                 '''
 If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at onuifeanyi95@gmail.com.
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
               Text(
                 '''
 This privacy policy page was created at privacypolicytemplate.net and modified/generated by App Privacy Policy Generator
                 ''',
-                style: Config.b1(context),
+                style: Config.textTheme.bodyMedium,
               ),
             ],
           ),

@@ -9,7 +9,7 @@ class AuthButton extends StatelessWidget {
     this.onpressed,
     this.isTransparent = false,
     this.showBorder = true,
-    this.hPadding = 5,
+    this.hPadding = 20,
   }) : super(key: key);
 
   final void Function()? onpressed;
@@ -25,8 +25,8 @@ class AuthButton extends StatelessWidget {
     return GestureDetector(
       onTap: onpressed,
       child: Container(
-        margin: Config.contentPadding(context, h: hPadding),
-        height: Config.yMargin(context, height ?? 7),
+        margin: Config.contentPadding(h: hPadding),
+        height: Config.y(height ?? 50),
         width: double.infinity,
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -43,7 +43,7 @@ class AuthButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12)),
         child: Text(
           text,
-          style: Config.b1b(context).copyWith(
+          style: Config.textTheme.bodyMedium?.copyWith(
             color: isTransparent
                 ? theme.primaryColor
                 : theme.scaffoldBackgroundColor,

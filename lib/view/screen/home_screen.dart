@@ -61,9 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
               _provider.checkState == CheckState.idle
                   ? const SizedBox(height: 2)
                   : const LinearProgressIndicator(minHeight: 2),
-              Container(
-                height: Config.yMargin(context, 11),
-                padding: Config.contentPadding(context),
+              Padding(
+                padding: Config.contentPadding(h: 15, v: 10),
                 child: _provider.marked.isNotEmpty
                     ? Row(
                         children: [
@@ -72,9 +71,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               dense: true,
                               contentPadding: const EdgeInsets.all(0),
                               controlAffinity: ListTileControlAffinity.leading,
+                              checkboxShape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
                               title: Text(
                                 'Select all  (${_provider.marked.length})',
-                                style: Config.b1b(context),
+                                style: Config.textTheme.bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.bold),
                                 overflow: TextOverflow.ellipsis,
                               ),
                               value: _markAll,
@@ -105,13 +107,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: TextFormField(
                               key: const ValueKey('search_field'),
                               keyboardType: TextInputType.emailAddress,
-                              style: Config.b1(context),
+                              style: Config.textTheme.bodyMedium,
                               decoration: InputDecoration(
                                 hintText: 'Search',
                                 prefixIcon: Icon(AppIcons.search),
-                                errorStyle: Config.b2(context),
+                                errorStyle: Config.textTheme.bodySmall,
                                 contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 12, vertical: 8),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
                               onChanged: (val) {
                                 _debouncer(() {
@@ -156,26 +166,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Icon(
                                 AppIcons.note,
-                                size: Config.yMargin(context, 8),
+                                size: Config.y(60),
                               ),
                               const SizedBox(height: 15),
                               Text(
                                 'Nothing to see here',
-                                style: Config.h2(context),
+                                style: Config.textTheme.titleMedium,
                               ),
-                              SizedBox(height: Config.yMargin(context, 10))
+                              Config.vGap20,
                             ],
                           ),
                         )
                       : MasonryGridView.builder(
-                          padding: Config.contentPadding(context),
+                          padding: Config.contentPadding(h: 15, v: 15),
                           itemCount: checklists.length,
                           gridDelegate:
                               SliverSimpleGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: Config.xMargin(context, 70),
+                            maxCrossAxisExtent: Config.x(200),
                           ),
-                          crossAxisSpacing: Config.xMargin(context, 3),
-                          mainAxisSpacing: Config.yMargin(context, 2),
+                          crossAxisSpacing: Config.x(15),
+                          mainAxisSpacing: Config.x(15),
                           itemBuilder: (context, index) {
                             final checklist = checklists[index];
                             return ChecklistItem(checklist: checklist);
@@ -187,9 +197,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).colorScheme.outline,
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
           key: const ValueKey('add_button'),
           child: Icon(AppIcons.add, size: 40),
           onPressed: () => context.push(ChecklistScreen.route),
+          shape: const CircleBorder(),
         ),
       ),
     );
