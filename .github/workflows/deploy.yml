@@ -92,7 +92,7 @@ jobs:
       - name: Make Web Build
         run: |
           flutter pub get
-          flutter build web
+          flutter build web --no-tree-shake-icons
 
       - name: Deploy Web Build
         uses: FirebaseExtended/action-hosting-deploy@v0
