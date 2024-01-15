@@ -17,26 +17,26 @@ class Config {
 
   static TextTheme get textTheme => TextTheme(
         titleLarge: GoogleFonts.sora(
-          fontSize: 32.sp,
+          fontSize: 30.sp,
           fontWeight: FontWeight.w700,
           height: 1.6,
         ),
         titleMedium: GoogleFonts.sora(
-          fontSize: 28.sp,
+          fontSize: 26.sp,
           fontWeight: FontWeight.w700,
           height: 1.6,
         ),
         titleSmall: GoogleFonts.sora(
-          fontSize: 24.sp,
+          fontSize: 22.sp,
           fontWeight: FontWeight.w700,
           height: 1.6,
         ),
         bodyLarge: GoogleFonts.sora(
-          fontSize: 16.sp,
+          fontSize: 18.sp,
           height: 1.6,
         ),
         bodyMedium: GoogleFonts.sora(
-          fontSize: 14.sp,
+          fontSize: 16.sp,
           height: 1.6,
         ),
         bodySmall: GoogleFonts.sora(

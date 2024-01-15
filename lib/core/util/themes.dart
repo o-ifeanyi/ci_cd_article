@@ -1,3 +1,4 @@
+import 'package:checklist_app/core/util/color_scheme.dart';
 import 'package:checklist_app/core/util/config.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class AppTheme {
       SchedulerBinding.instance.platformDispatcher.platformBrightness;
 
   static ThemeData lightTheme() => FlexThemeData.light(
-        scheme: FlexScheme.shark,
+        colorScheme: flexSchemeLight,
         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
         blendLevel: 7,
         subThemesData: const FlexSubThemesData(
@@ -32,7 +33,7 @@ class AppTheme {
       );
 
   static ThemeData darkTheme() => FlexThemeData.dark(
-        scheme: FlexScheme.shark,
+        colorScheme: flexSchemeDark,
         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
         blendLevel: 13,
         subThemesData: const FlexSubThemesData(
