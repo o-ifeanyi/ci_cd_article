@@ -1,6 +1,5 @@
 import 'package:checklist_app/core/platform_specific/platform_alert_dialog.dart';
 import 'package:checklist_app/core/services/snackbar_service.dart';
-import 'package:checklist_app/core/util/config.dart';
 import 'package:checklist_app/view/widget/custom_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,10 +32,7 @@ class _AppAwareState extends State<AppAware> {
               color: Colors.black38,
               child: PlatformAlertDialog(
                 title: event.title,
-                content: Text(
-                  event.message,
-                  style: Config.b1(context),
-                ),
+                content: Text(event.message),
                 actions: [
                   DialogAction(
                     text: 'Close',

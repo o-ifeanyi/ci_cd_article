@@ -1,103 +1,86 @@
 import 'dart:io';
-import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Config {
+  static bool get isWeb => kIsWeb;
   static bool get isAndroid => Platform.isAndroid;
   static bool get isIOS => Platform.isIOS;
   static bool get isMacOS => Platform.isMacOS;
+  static bool get isMobile => !kIsWeb;
 
-  static bool isPotrait(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    return mediaQuery.orientation == Orientation.portrait;
-  }
+  static double get height => 1.sh;
 
-  static double height(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    return mediaQuery.size.height - mediaQuery.viewPadding.vertical;
-  }
+  static double get width => 1.sw;
 
-  static double width(BuildContext context) =>
-      MediaQuery.of(context).size.width;
-
-  static TextStyle h1(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 3),
-        fontWeight: FontWeight.w700,
-        height: 1.6,
+  static TextTheme get textTheme => TextTheme(
+        titleLarge: GoogleFonts.sora(
+          fontSize: 32.sp,
+          fontWeight: FontWeight.w700,
+          height: 1.6,
+        ),
+        titleMedium: GoogleFonts.sora(
+          fontSize: 28.sp,
+          fontWeight: FontWeight.w700,
+          height: 1.6,
+        ),
+        titleSmall: GoogleFonts.sora(
+          fontSize: 24.sp,
+          fontWeight: FontWeight.w700,
+          height: 1.6,
+        ),
+        bodyLarge: GoogleFonts.sora(
+          fontSize: 16.sp,
+          height: 1.6,
+        ),
+        bodyMedium: GoogleFonts.sora(
+          fontSize: 14.sp,
+          height: 1.6,
+        ),
+        bodySmall: GoogleFonts.sora(
+          fontSize: 12.sp,
+          height: 1.4,
+        ),
+        labelLarge: GoogleFonts.sora(
+          fontSize: 14.sp,
+          height: 1.4,
+        ),
+        labelMedium: GoogleFonts.sora(
+          fontSize: 12.sp,
+          height: 1.0,
+        ),
+        labelSmall: GoogleFonts.sora(
+          fontSize: 12.sp,
+          height: 1.0,
+        ),
       );
 
-  static TextStyle h2(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 2.5),
-        fontWeight: FontWeight.w700,
-        height: 1.6,
-      );
+  static EdgeInsets contentPadding({double? h, double? v}) =>
+      EdgeInsets.symmetric(horizontal: (h ?? 0).w, vertical: (v ?? 0).h);
 
-  static TextStyle h3b(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 2.1),
-        fontWeight: FontWeight.w700,
-        height: 1.6,
-      );
+  static EdgeInsets contentPaddingLTRB(
+          double l, double t, double r, double b) =>
+      EdgeInsets.fromLTRB(l.w, t.h, r.w, b.h);
 
-  static TextStyle h3(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 2.1),
-        height: 1.6,
-      );
+  static double y(double height) => height.h;
 
-  static TextStyle b1(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 1.7),
-        height: 1.6,
-      );
+  static double x(double width) => width.w;
 
-  static TextStyle b1b(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 1.7),
-        fontWeight: FontWeight.w700,
-        height: 1.6,
-      );
+  static bool get isSmallScreen => 1.sw <= 650;
+  static bool get isMediumScreen => 1.sw > 650;
+  static bool get isLargeScreen => 1.sw > 850;
 
-  static TextStyle b2(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 1.5),
-        height: 1.6,
-      );
+  static Widget get hGap5 => SizedBox(width: 5.w);
+  static Widget get hGap10 => SizedBox(width: 10.w);
+  static Widget get hGap15 => SizedBox(width: 15.w);
+  static Widget get hGap20 => SizedBox(width: 20.w);
+  static Widget get hGap30 => SizedBox(width: 30.w);
 
-  static TextStyle b2b(BuildContext context) => GoogleFonts.sora(
-        fontSize: textSize(context, 1.5),
-        fontWeight: FontWeight.w700,
-        height: 1.6,
-      );
-
-  static EdgeInsets contentPadding(BuildContext context,
-      {double? h, double? v}) {
-    if (v != null) {
-      return EdgeInsets.symmetric(
-          horizontal: xMargin(context, h ?? 0), vertical: yMargin(context, v));
-    }
-    return EdgeInsets.symmetric(
-        horizontal: xMargin(context, h ?? 5),
-        vertical: yMargin(context, v ?? 0));
-  }
-
-  static double yMargin(BuildContext context, double height) {
-    double viewPortHeight = MediaQuery.of(context).size.longestSide;
-    viewPortHeight = viewPortHeight > 950 ? 950 : viewPortHeight;
-    return height * (viewPortHeight / 100);
-  }
-
-  static double xMargin(BuildContext context, double width) {
-    double viewPortwidth = MediaQuery.of(context).size.shortestSide;
-    viewPortwidth = viewPortwidth > 650 ? 650 : viewPortwidth;
-    return width * (viewPortwidth / 100);
-  }
-
-  static double textSize(BuildContext context, double size) {
-    double vph = MediaQuery.of(context).size.longestSide;
-    double vpw = MediaQuery.of(context).size.shortestSide;
-
-    final val = pow(vph, 2) + pow(vpw, 2);
-
-    double hyp = sqrt(val);
-    hyp = hyp > 1000 ? 1000 : hyp;
-
-    return size * (hyp / 100);
-  }
+  static Widget get vGap5 => SizedBox(height: 5.h);
+  static Widget get vGap10 => SizedBox(height: 10.h);
+  static Widget get vGap15 => SizedBox(height: 15.h);
+  static Widget get vGap20 => SizedBox(height: 20.h);
+  static Widget get vGap30 => SizedBox(height: 30.h);
 }

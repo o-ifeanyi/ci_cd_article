@@ -27,33 +27,28 @@ class PlatformAlertDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Config.isAndroid
         ? AlertDialog(
-            title:
-                title != null ? Text(title!, style: Config.h3b(context)) : null,
+            title: title != null
+                ? Text(title!, style: Config.textTheme.titleSmall)
+                : null,
             content: content,
             actions: actions
                 .map(
-                  (e) => TextButton(
-                      onPressed: e.onPressed,
-                      child: Text(
-                        e.text,
-                        style: Config.b1(context),
-                      )),
+                  (e) =>
+                      TextButton(onPressed: e.onPressed, child: Text(e.text)),
                 )
                 .toList(),
           )
         : CupertinoAlertDialog(
-            title:
-                title != null ? Text(title!, style: Config.h3b(context)) : null,
+            title: title != null
+                ? Text(title!, style: Config.textTheme.titleSmall)
+                : null,
             content: content,
             actions: actions
                 .map(
                   (e) => CupertinoDialogAction(
                       isDefaultAction: e.isDefaultAction,
                       onPressed: e.onPressed,
-                      child: Text(
-                        e.text,
-                        style: Config.b1(context),
-                      )),
+                      child: Text(e.text)),
                 )
                 .toList(),
           );
