@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none' 
 
-version: 1.0.4+7
+version: 1.0.5+8
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
@@ -32,8 +32,16 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
+  flutter_native_splash: ^2.3.9
   flutter_lints: ^3.0.1
   mocktail: ^1.0.2
 
 flutter:
   uses-material-design: true
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/splash.png
+  android_12:
+    image: assets/images/splash.png
+    color: "#FFFFFF"
